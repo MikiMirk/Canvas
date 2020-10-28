@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        body {
+            /* margin-left: 100px;
+            margin-right: 100px; */
+            margin-left: 20%;
+            background-color: rgb(36, 36, 36);
+        }
+
+        #kalender { 
+            border: 2px solid rgb(255, 255, 255, .7);
+            display: inline-grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            text-align: center;
+            background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2013/11/18/176709/59e2181f53f6869f70456402121015d6.jpg");
+            /* background-attachment: fixed; */
+            background-size: cover;
+        }
+
+        .day {
+            border: 2px solid rgb(255, 255, 255, .7);
+            padding: 40px; 
+            font-size: 40px;
+            color: white;
+            
+        }
+        .this {
+            font-size: 50px;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="kalender"></div>
+    <div id="kalendertext"></div>
+
+<script>
+
+    //model
+
+    var kalenderDiv = document.getElementById('kalender');
+    var kalenderTextDiv = document.getElementById('kalendertext');
+
+    let alleDagene = [
+    { dagNavn: "1" , dagensHistorie:"Det var en gang første desember..."},
+    { dagNavn: "2" , dagensHistorie:"Det var en annen gang andre desember..."},
+    { dagNavn: "3" , dagensHistorie:"Det var en gang tredje desember..."},
+    { dagNavn: "4" , dagensHistorie:"Det var en annen gang fjerde desember..."},
+    { dagNavn: "5" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "6" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "7" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "8" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "9" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "10" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "11" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "12" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "13" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "14" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "15" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "16" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "17" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "18" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "19" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "20" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "21" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "22" , dagensHistorie:"Det var en annen gang..."},
+    { dagNavn: "23" , dagensHistorie:"Det var en gang..."},
+    { dagNavn: "24" , dagensHistorie:"Det var en annen gang..."},
+    ]
+    
+    let valgt='';
+
+
+
+    //view
+
+    show();
+
+    function show(){
+        var html= '';
+        var html2='';
+
+        for (dag of alleDagene){  //her vil hver "dag" være ett objekt med navn og historie
+
+        html += `<div class="day"  onclick="controllerFunksjon('${dag.dagensHistorie}')"> ${dag.dagNavn}  </div>`
+        
+        }
+
+    
+
+        html2+=`<div class ="this"> ${valgt}</div>`
+       
+
+        kalenderDiv.innerHTML = html;
+        kalenderTextDiv.innerHTML = html2;
+    }
+
+
+
+
+//controller
+function controllerFunksjon(noe){
+valgt = noe;
+show();
+}
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
