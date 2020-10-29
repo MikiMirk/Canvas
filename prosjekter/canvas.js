@@ -129,7 +129,7 @@ function init() {
 
 function spawnEnemies(){
     setInterval(() => {
-        const radius = Math.random() * (30 - 4) + 4
+        const radius = Math.random() * (30 - 5) + 5
 
         let x
         let y
@@ -156,7 +156,7 @@ function spawnEnemies(){
             y: Math.sin(angle)
         }
         enemies.push(new Enemy(x, y, radius, color, velocity))
-    }, 1000)
+    }, 2250)
 }
 
 let animationId
